@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#338FCC">
+    <meta name="msapplication-TileColor" content="#338FCC">
+    
+    
+    
+    
+    <meta name="keywords" content="Weizexin, A Blog, Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#338FCC">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="A Blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato|Roboto+Condensed|Skranji|Ubuntu|Ubuntu+Mono">
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-light.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>【教程】BFS学习笔记 | A Blog</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #338FCC;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">A Blog</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91bfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Weizexin">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/m.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="A Blog">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">【教程】BFS学习笔记</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-09T20:20:01+08:00">2019-12-09 20:20:01</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <ul>
+<li>例子(已被授予主人公的名字使用权)</li>
+</ul>
+<p>ZZJ 进入了一个 n × m 的迷宫矩阵，执着的他表示要穿过迷宫。</p>
+<p>ZZJ 在地图的左上角，而迷宫出口在右下角，设进入每个房间都需要 1 的时间，他在入口的地面上捡到一张迷宫地图，发现有一些障碍物（图中以“障碍”表示，代码中以“#”表示，存在map数组中），于是他决定计算出自己到终点最少需要时间（请思考后再往下看）。</p>
+<table>
+<thead>
+<tr>
+<th>\</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>起点</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>障碍</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td>障碍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>障碍</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td>障碍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>终点</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<ul>
+<li>思路：</li>
+<li>首先，我们需要一个小本本存ZZJ到达的地方及步数：</li>
+</ul>
+<figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">nod</span>&#123;</span><span class="hljs-keyword">int</span> x,y,t;&#125;f[<span class="hljs-number">100001</span>];<span class="hljs-comment">//x,y表示位置，t表示ZZJ到达此点需要的步数</span></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>其次，我们需要一个bool数组存i,j这个位置是否被走过以及一个map数组存地图：</p>
+<figure class="hljs highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs markdown">bool bz[<span class="hljs-string">101</span>][<span class="hljs-symbol">101</span>];//这里以0<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">n,m</span>&lt;=<span class="hljs-string">100为数据范围，实际情况请以题面修改数组范围</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-attr">char</span> <span class="hljs-attr">map</span>[<span class="hljs-attr">101</span>][<span class="hljs-attr">101</span>];</span></span></code></pre></td></tr></table></figure></li>
+<li><p>再次，我们需要一个方向数组，使ZZJ能上、下、左、右移动：</p>
+</li>
+</ul>
+<figure class="hljs highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> dx[<span class="hljs-number">4</span>]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> dy[<span class="hljs-number">4</span>]=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;;</code></pre></td></tr></table></figure>
+
+<ul>
+<li>准备完毕了，ZZJ可以出发啦!</li>
+<li>首先，ZZJ将自己的位置存进小本本的第一格里：</li>
+</ul>
+<figure class="hljs highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">tou</span>=<span class="hljs-number">1</span>,wei=<span class="hljs-number">2</span><span class="hljs-comment">;//用两个指针指向小本本队头和队尾</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">f[tou].x</span>=<span class="hljs-number">1</span><span class="hljs-comment">;</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">f[tou].y</span>=<span class="hljs-number">1</span><span class="hljs-comment">;</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">f[tou].t</span>=<span class="hljs-number">0</span><span class="hljs-comment">;</span></code></pre></td></tr></table></figure>
+
+<ul>
+<li>接着，ZZJ通过方向数组到达一个新位置：</li>
+</ul>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">int nx</span>=f[tou].x+dx[i];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">int ny</span>=f[tou].y+dy[i];</code></pre></td></tr></table></figure>
+
+<ul>
+<li>但是ZZJ有可能跑出了迷宫，掉下悬崖了，所以我们要判断一下ZZJ站在的位置是否在迷宫内：</li>
+</ul>
+<figure class="hljs highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs lisp">if(<span class="hljs-name">nx&lt;1</span><span class="hljs-name">||</span><span class="hljs-name">nx&gt;n</span><span class="hljs-name">||</span><span class="hljs-name">ny&lt;1</span><span class="hljs-name">||</span><span class="hljs-name">ny&gt;m</span>)continue<span class="hljs-comment">;//跑出去就不要他了</span></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果ZZJ已经到了终点，那就是最短到达的距离啦（因为在这个地图中到达每一个点距离都为1），输出小本本的当前的 <code>t+1</code> ，退出搜索就好啦就好啦：</p>
+<figure class="hljs highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">if</span>(nx==n&amp;&amp;ny==<span class="hljs-keyword">m</span>) </code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs perl">&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">printf</span>(<span class="hljs-string">"ZZJ到达终点的最短距离是：%d"</span>,f[tou].t+<span class="hljs-number">1</span>);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">return</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs perl">&#125;</code></pre></td></tr></table></figure></li>
+<li><p>如果ZZJ到达的是一个新的非障碍的点，并且没来过，ZZJ就在他的小本本上记录下他的位置：</p>
+</li>
+</ul>
+<figure class="hljs highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs markdown">if(map[<span class="hljs-string">nx</span>][<span class="hljs-symbol">ny</span>]=='.'&amp;&amp;bz[<span class="hljs-string">nx</span>][<span class="hljs-symbol">ny</span>]==false)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs markdown">&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">    bz[nx][ny]=true;</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">    f[wei].x=nx;</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">    f[wei].y=ny;</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">    f[wei].t=f[tou].t+1;</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">    wei++;</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><code class="hljs markdown">&#125;</code></pre></td></tr></table></figure>
+
+<ul>
+<li>ZZJ走过了（遍历）周围可走的点后，就将小本本的队头往后挪一个，开始了新的遍历（直到没有点可以更新出新的点时停止，即 $tou=wei$ ）：</li>
+</ul>
+<figure class="hljs highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">tou</span>++<span class="hljs-comment">;</span></code></pre></td></tr></table></figure>
+
+<ul>
+<li>这就是整个bfs的完整过程啦，上完整代码：</li>
+</ul>
+<figure class="hljs highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs angelscript">#include&lt;cstdio&gt;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> n,m,tou,wei;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> dx[<span class="hljs-number">4</span>]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> dy[<span class="hljs-number">4</span>]=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">bool</span> bz[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><code class="hljs angelscript">char map[<span class="hljs-number">101</span>][<span class="hljs-number">102</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><code class="hljs angelscript">struct nod&#123;<span class="hljs-built_in">int</span> x,y,t;&#125; f[<span class="hljs-number">10001</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">void</span> bfs(<span class="hljs-built_in">int</span> sx,<span class="hljs-built_in">int</span> sy)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><code class="hljs angelscript">&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><code class="hljs angelscript">    tou=<span class="hljs-number">1</span>,wei=<span class="hljs-number">2</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><code class="hljs angelscript">    f[tou].x=sx;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><code class="hljs angelscript">    f[tou].y=sy;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><code class="hljs angelscript">    f[tou].t=<span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">while</span>(tou&lt;wei)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><code class="hljs angelscript">        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">3</span>;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-built_in">int</span> nx=f[tou].x+dx[i];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-built_in">int</span> ny=f[tou].y+dy[i];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-keyword">if</span>(nx&lt;<span class="hljs-number">1</span> || nx&gt;n || ny&lt;<span class="hljs-number">1</span> || ny&gt;m)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><code class="hljs angelscript">                <span class="hljs-keyword">continue</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-keyword">if</span>(nx==n &amp;&amp; ny==m)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><code class="hljs angelscript">                printf(<span class="hljs-string">"ZZJ到达终点的最短距离是：%d"</span>,f[tou].t+<span class="hljs-number">1</span>);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><code class="hljs angelscript">                <span class="hljs-keyword">return</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-keyword">if</span>(map[nx][ny]==<span class="hljs-string">'.'</span>&amp;&amp;bz[nx][ny]==<span class="hljs-literal">false</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><code class="hljs angelscript">                bz[nx][ny]=<span class="hljs-literal">true</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><code class="hljs angelscript">                f[wei].x=nx;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><code class="hljs angelscript">                f[wei].y=ny;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><code class="hljs angelscript">                f[wei].t=f[tou].t+<span class="hljs-number">1</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><code class="hljs angelscript">                wei++;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><code class="hljs angelscript">        tou++;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><code class="hljs angelscript">&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> main()</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><code class="hljs angelscript">&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><code class="hljs angelscript">    scanf(<span class="hljs-string">"%d%d"</span>,&amp;n,&amp;m);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><code class="hljs angelscript">        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j=<span class="hljs-number">1</span>;j&lt;=m+<span class="hljs-number">1</span>;j++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><code class="hljs angelscript">            scanf(<span class="hljs-string">"%c"</span>,&amp;map[i][j]);<span class="hljs-comment">//结尾要多读一个换行符</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><code class="hljs angelscript">    bfs(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><code class="hljs angelscript">&#125;</code></pre></td></tr></table></figure>
+
+<ul>
+<li>如果理解透了这道题，就练练手吧：</li>
+<li><a href="http://noi.openjudge.cn/ch0205/2753/" target="_blank" rel="noopener">题目练习</a></li>
+<li>鸣谢： @<code>\text{zhongzijun}</code> 。</li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/12/09/csp-j-t2/" rel="next" title="CSP-J T2 交通换乘"><i class="fas fa-angle-left"></i><span class="nav-title">CSP-J T2 交通换乘</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/12/14/csp-j-t3/" rel="prev" title="CSP-J T3 纪念品"><span class="nav-title">CSP-J T3 纪念品</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/m.png" alt="Weizexin">
+  
+  <h1 class="author-name">Weizexin</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">8</a></div>
+    </div>
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:2564092179@qq.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/weizexin" target="_blank">GitHub</a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_40167327" target="_blank">CSDN</a></li>
+        
+        <li><a href="http://129.204.88.66/" target="_blank">A Blog Main Station</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.csdn.net/" target="_blank">CSDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.luogu.com.cn/" target="_blank">LUOGU</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://gmoj.net/" target="_blank">GMOJ</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.bilibili.com/" target="_blank">bilibili</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://sm.ms/" target="_blank">SM.MS</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #338FCC;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Weizexin</span><span class="year"><i class="far fa-copyright"></i>Sun Jul 07 2019 08:00:00 GMT+0800 (中国标准时间) - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">BY-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
