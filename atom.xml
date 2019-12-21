@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-21T06:51:38.647Z</updated>
+  <updated>2019-12-21T07:03:01.870Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LGOJ P5461 【赦免战俘】</title>
+    <link href="http://yoursite.com/2019/12/21/lgoj-p5461-%E3%80%90%E8%B5%A6%E5%85%8D%E6%88%98%E4%BF%98%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/21/lgoj-p5461-%E3%80%90%E8%B5%A6%E5%85%8D%E6%88%98%E4%BF%98%E3%80%91/</id>
+    <published>2019-12-21T07:02:35.255Z</published>
+    <updated>2019-12-21T07:03:01.870Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;一个 $2^n \times2^n$ 的矩阵，每个位置站着一个作弊者，每次将正方形矩阵 &lt;strong&gt;分割&lt;/strong&gt; 成4个更小的正方形矩阵，每个矩阵的边长是原矩阵的 &lt;strong&gt;一半&lt;/strong&gt; 。其中 &lt;strong&gt;左上角&lt;/strong&gt; 那一个矩阵的所有作弊者都将得到 &lt;strong&gt;赦免&lt;/strong&gt; ，剩下的三个矩阵中，每一个矩阵继续分为 4 个更小的矩阵，然后以 &lt;strong&gt;同样的方式&lt;/strong&gt; 分割矩阵，以同样的方式 &lt;strong&gt;赦免&lt;/strong&gt; ，直到矩阵不能再分割为止，剩下的作弊者将会被惩罚。求这个矩阵每个作弊者的命运，赦免为 0 ，惩罚为 &lt;strong&gt;1&lt;/strong&gt; 。&lt;/p&gt;
+&lt;p&gt;$n\leq 10$&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GMOJ P2642 【游戏】</title>
+    <link href="http://yoursite.com/2019/12/21/gmoj-p2642-%E3%80%90%E6%B8%B8%E6%88%8F%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/21/gmoj-p2642-%E3%80%90%E6%B8%B8%E6%88%8F%E3%80%91/</id>
+    <published>2019-12-21T07:00:26.329Z</published>
+    <updated>2019-12-21T07:00:26.329Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;给你一个正整数 $n$ 和一个 $n \times n$ 的矩阵 $a$，有两个人轮流对这个矩阵进行操作，每次可以删掉最后一行或最后一列，但必须要保证所删的行或列的和是偶数。当一个人无法操作时这个人就输了。&lt;/p&gt;
+&lt;p&gt;现在请你求出在双方都使用最优策略的情况下，先手是否有必胜策略，有则输出 &lt;code&gt;$W$&lt;/code&gt; ，否则输出 &lt;code&gt;$L$&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;$1 \leq n \leq 1000,1 \leq T \leq 5$ 。&lt;/p&gt;
+&lt;p&gt;$\text{保证每一行或每一列的和不会超过};2 \times 10^9$ 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>GMOJ P1420 【佳肴】</title>
@@ -92,8 +130,8 @@
   
   <entry>
     <title>GMOJ P1432【输油管道】</title>
-    <link href="http://yoursite.com/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/"/>
-    <id>http://yoursite.com/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/</id>
+    <link href="http://yoursite.com/2019/12/14/gmoj-p1432-%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/14/gmoj-p1432-%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/</id>
     <published>2019-12-14T06:22:56.352Z</published>
     <updated>2019-12-21T06:53:04.431Z</updated>
     
