@@ -180,7 +180,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>GMOJ P3504 【运算符】 | A Blog</title>
+    <title>CSP-J T4 加工零件 | A Blog</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -220,7 +220,7 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/14/gmoj-p3504-%E3%80%90%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%91/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/csp-j-t4-%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="Weizexin">
        <meta itemprop="description" content="">
@@ -231,11 +231,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">GMOJ P3504 【运算符】</h1>
+      <h1 class="post-title" itemprop="name headline">CSP-J T4 加工零件</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-14T14:08:36+08:00">2019-12-14 14:08:36</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-21T14:09:55+08:00">2019-12-21 14:09:55</time></span>
         </span>
         
         
@@ -243,23 +243,33 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>定义新运算 “$!$” ，运算规则如下：</p>
-<p>$a!b = a!(b-1) \times (a-1)!b ( a &gt; 0,b &gt; 0 )$<br>$a!b = 1 ( a = 0 )$<br>$a!b = a ( b = 0 )$</p>
-<p>。</p>
-<p>给你两个正整数 $n$ 和 $k$ ，现在请你求出 $n!k$ 的因子个数 $\mod (10^9+9)$ 。</p>
-<p>$1\leq n\leq 1000,1 \leq k \leq 100$ 。</p>
+      <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><img src="https://i.loli.net/2019/11/30/GqYQabDRvsHNXkZ.png" alt="下载 _1_.png"></p>
 <a id="more"></a>
 
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑使用 <strong>递推</strong> 来解题。</p>
-<p>设 $f[i][j][k]$ 表示 $i ! j$ 分解质因数后的第 $k$ 个 <strong>质数</strong> 的指数的值，那显然有：</p>
-<p>$f[i][j][k]=(f[i-1][j][k]+f[i][j-1][k])\mod(10^9+9)$</p>
-<p>。</p>
-<p>若一个数 $n=p_1^{k_1} \times p_2^{k_2} \times … \times p_m^{k_m}$ ，其中 $p_1$ ~ $p_m$ 均为质数，那么 $n$ 的因子个数为 $\prod_{i=1}^m (k_i+1)$ 。</p>
-<p>所以我们可以得出答案等于 $(\prod_{i=1}^{n}(f[n][k][i]+1)) \mod;(10^9+9)$ 。</p>
-<p>记得要中途取模！</p>
-<p>时间复杂度 $O(nk)$，具体细节详见 <strong>代码</strong> 部分。</p>
-<p>然后这道题目就做完了。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="hljs highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs angelscript">#include&lt;cstdio&gt;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span> N=<span class="hljs-number">1e9</span>+<span class="hljs-number">9</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> n,m,a[<span class="hljs-number">169</span>],len;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> f[<span class="hljs-number">1001</span>][<span class="hljs-number">101</span>][<span class="hljs-number">169</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs angelscript">long long <span class="hljs-built_in">int</span> ans=<span class="hljs-number">1</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">bool</span> bz[<span class="hljs-number">1001</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> main()</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><code class="hljs angelscript">&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><code class="hljs angelscript">    scanf(<span class="hljs-string">"%d%d"</span>,&amp;n,&amp;m);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><code class="hljs angelscript">    a[++len]=<span class="hljs-number">2</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">3</span>;i&lt;=n;i+=<span class="hljs-number">2</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><code class="hljs angelscript">        <span class="hljs-keyword">if</span>(bz[i]==<span class="hljs-literal">false</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><code class="hljs angelscript">            a[++len]=i;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j=<span class="hljs-number">3</span>;j&lt;=n/i;j+=<span class="hljs-number">2</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><code class="hljs angelscript">                bz[i*j]=<span class="hljs-literal">true</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><code class="hljs angelscript">        <span class="hljs-built_in">int</span> x=i;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><code class="hljs angelscript">        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j=<span class="hljs-number">1</span>;j&lt;=len&amp;&amp;a[j]&lt;=i;j++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-keyword">while</span>(x%a[j]==<span class="hljs-number">0</span>)x/=a[j],f[i][<span class="hljs-number">0</span>][j]++;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><code class="hljs angelscript">        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j=<span class="hljs-number">1</span>;j&lt;=m;j++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><code class="hljs angelscript">            <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> k=<span class="hljs-number">1</span>;k&lt;=len;k++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><code class="hljs angelscript">                f[i][j][k]=(f[i<span class="hljs-number">-1</span>][j][k]+f[i][j<span class="hljs-number">-1</span>][k])%N;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><code class="hljs angelscript">            &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><code class="hljs angelscript">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=len;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><code class="hljs angelscript">        ans=(ans*(f[n][m][i]+<span class="hljs-number">1</span>))%N;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><code class="hljs angelscript">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><code class="hljs angelscript">    printf(<span class="hljs-string">"%d"</span>,ans);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><code class="hljs angelscript">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><code class="hljs angelscript">&#125;</code></pre></td></tr></table></figure>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><p>考虑使用 <strong>SPFA</strong> 来解题。</p>
+<p>先整理出题意中包含的条件：</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>有 n 个点， m 条边（输入输出里面写了），q 个询问。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>每一次询问中，会给 a_i 号点一个值 L 。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>i 号点如果有一个值 L 且 L &gt; 0，那么与它有边连接的点就都会有一个值 L-1 ，当 L=0 时，这个点就会被标记。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>若 1 号点会被标记时，此询问就要输出 “Yes” ，否则输出 “No” 。</td>
+</tr>
+</tbody></table>
+<p>并未写完，敬请期待。。。</p>
+
     </main>
     <footer class="post-footer">
       
@@ -270,12 +280,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2019/12/14/gmoj-p3517-%E3%80%90%E7%A9%BA%E9%97%B4%E8%88%AA%E8%A1%8C%E3%80%91/" rel="next" title="GMOJ P3517 【空间航行】"><i class="fas fa-angle-left"></i><span class="nav-title">GMOJ P3517 【空间航行】</span></a>
+      <a href="/2019/12/21/gmoj-p3035-%E3%80%90%E9%93%81%E8%BD%A8%E3%80%91/" rel="next" title="GMOJ P3035 【铁轨】"><i class="fas fa-angle-left"></i><span class="nav-title">GMOJ P3035 【铁轨】</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/" rel="prev" title="GMOJ P1432【输油管道】"><span class="nav-title">GMOJ P1432【输油管道】</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -332,7 +340,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Solutions"><span class="toc-text">Solutions</span></a></li></ol></div>
     </div>
     
     

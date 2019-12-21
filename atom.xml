@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-21T06:02:53.911Z</updated>
+  <updated>2019-12-21T06:25:51.078Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSP-J T4 加工零件</title>
+    <link href="http://yoursite.com/2019/12/21/csp-j-t4-%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6/"/>
+    <id>http://yoursite.com/2019/12/21/csp-j-t4-%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6/</id>
+    <published>2019-12-21T06:09:55.307Z</published>
+    <updated>2019-12-21T06:25:51.078Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/11/30/GqYQabDRvsHNXkZ.png&quot; alt=&quot;下载 _1_.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GMOJ P3035 【铁轨】</title>
+    <link href="http://yoursite.com/2019/12/21/gmoj-p3035-%E3%80%90%E9%93%81%E8%BD%A8%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/21/gmoj-p3035-%E3%80%90%E9%93%81%E8%BD%A8%E3%80%91/</id>
+    <published>2019-12-21T06:06:50.827Z</published>
+    <updated>2019-12-21T06:07:09.207Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;给你一个正整数 $n$ ，然后给你 $n$ 个正整数 $a_1$ ~ $a_n$ ，问你是否有可能存在入栈顺序为 $1,2,3,…,n$ ，出栈顺序为 $a_1$ ~ $a_n$ 的情况，共有 $T$ 组数据。&lt;/p&gt;
+&lt;p&gt;$1 \leq n \leq 1000,1 \leq T \leq 10$ 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>GMOJ P3403 【数列变换】</title>
