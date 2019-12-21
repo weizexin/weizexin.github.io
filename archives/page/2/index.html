@@ -180,7 +180,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>GMOJ P3403 【数列变换】 | A Blog</title>
+    <title>归档 | A Blog</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -216,64 +216,36 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+<div id="archive" class="archive page">
+  <h1 class="page-title">归档</h1>
+  <h2 class="page-counter">
+    
+    你已经写了 11 篇文章！
+    
+  </h2>
+  
+  
+  
+  
+  <h2 class="page-title">2019</h1>
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/14/gmoj-p3403-%E3%80%90%E6%95%B0%E5%88%97%E5%8F%98%E6%8D%A2%E3%80%91/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="Weizexin">
-       <meta itemprop="description" content="">
-       <meta itemprop="image" content="/images/m.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="A Blog">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">GMOJ P3403 【数列变换】</h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-14T14:46:47+08:00">2019-12-14 14:46:47</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>开始有一初始数列 $a=[a_{1},a_{2},a_{3},···,a_{n}]$ ,定义 $f(a,k)=[a_{2},a_{3},···,a_{k},a_{1},a_{k+2},a_{k+3},···,a_{2k},a_{k+1}···]$ ，也就是把 $a$ 分段，每段 $k$ 个，若最后不足 $k$ 个时，将剩下的组成新的一段，每段第一个移成该段最后一个。</p>
-<p>求 $f(f(f(f(f(1,2,3,···,n),2),3),···),n)$ 的结果。</p>
-<p>$1\leq n\leq 10^{6}$ 。</p>
-<a id="more"></a>
-
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑使用 <strong>模拟</strong> 和 <strong>找规律</strong> 来解题。</p>
-<p>操作中是将数列按每 $k$ 个为一段，将第一个移到最后一个的位置，其他然后往前补一格。</p>
-<p>但我们很快可以发现，有一种等价的做法是：将第 $1$ 个移到 $k+1$ 个的位置，第 $k+1$ 个移到第 $2k+1$ 的位置，一直到第 $xk+1$ 个移到 $n+1$ 的位置，第 $2$ 个到第 $n+1$ 个组成的序列和之前的做法组成的序列是一样的。</p>
-<p>那问题就变成了在数列中移动是 $k$ 的倍数加 $1$ 的数的问题。</p>
-<p>然后这道题目就做完了，具体细节详见<strong>代码</strong>。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> n,a[<span class="hljs-number">2000001</span>],an,t;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs cpp"></span>&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><code class="hljs cpp">        a[i]=i;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><code class="hljs cpp">        an=a[i<span class="hljs-number">-1</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> j=<span class="hljs-number">2</span>*i<span class="hljs-number">-1</span>;j&lt;=n+i<span class="hljs-number">-2</span>;j+=i)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><code class="hljs cpp">            t=an;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><code class="hljs cpp">            an=a[j];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><code class="hljs cpp">            a[j]=t;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><code class="hljs cpp">        a[n+i<span class="hljs-number">-1</span>]=an;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=n;i&lt;=<span class="hljs-number">2</span>*n<span class="hljs-number">-1</span>;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>,a[i]);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><code class="hljs cpp">&#125;</code></pre></td></tr></table></figure>
-    </main>
-    <footer class="post-footer">
+    <header id="post-header" class="post-header">
+      <h1 class="post-title-simple" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/12/01/zhuyi/" itemprop="url">hexo 注意事项</a>
+      </h1>
       
-    </footer>
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-01T00:00:01+08:00">12-01</time>
+      </span>
+      
+    </header>
   </article>
   
   
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-      <a href="/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/" rel="next" title="GMOJ P1432【输油管道】"><i class="fas fa-angle-left"></i><span class="nav-title">GMOJ P1432【输油管道】</span></a>
-      
-    </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/12/21/gmoj-p3035-%E3%80%90%E9%93%81%E8%BD%A8%E3%80%91/" rel="prev" title="GMOJ P3035 【铁轨】"><span class="nav-title">GMOJ P3035 【铁轨】</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
   </nav>
-  
   
 </div>
 
@@ -318,17 +290,6 @@
 
 
   <div class="sidebar-sticky">
-    
-    
-    
-    
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol></div>
-    </div>
-    
     
     
     <hr>

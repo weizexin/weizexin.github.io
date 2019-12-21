@@ -180,7 +180,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>CSP-J T2 交通换乘 | A Blog</title>
+    <title>A Blog</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -216,26 +216,29 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+
+<div id="index" class="index page">
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/csp-j-t2/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/zhuyi/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="Weizexin">
-       <meta itemprop="description" content="">
-       <meta itemprop="image" content="/images/m.png">
+        <meta itemprop="name" content="Weizexin">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/m.png">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="A Blog">
+        <meta itemprop="name" content="A Blog">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">CSP-J T2 交通换乘</h1>
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/12/01/zhuyi/" itemprop="url">hexo 注意事项</a>
+      </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-09T19:28:57+08:00">2019-12-09 19:28:57</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-01T00:00:01+08:00">2019-12-01 00:00:01</time></span>
         </span>
         
         
@@ -243,16 +246,9 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><img src="https://i.loli.net/2019/11/27/CFdVnsD8yJ4WGzq.png" alt="1.png"></p>
-<a id="more"></a>
-
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><p>这道题考虑用 <strong>模拟</strong> 来解题。</p>
-<p>这道题纯属模拟，把每个记录依次读入。</p>
-<p>如果是乘地铁的记录，就把它丢进一个栈里面，并将此票的价钱加入总花费中；</p>
-<p>如果是乘公交的记录，开始处理它：如果有票可以用，就用掉符合条件的票，然后把这张票的记录从栈里删去（可以用一个bool数组来存该票的状态），如果无票符合条件，直接把要花的钱加入总花费中。</p>
-<p>最后输出即可。</p>
-<p>这道题就做完了。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstring&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N=<span class="hljs-number">1e5</span>+<span class="hljs-number">1</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> n,tou,wei;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">nod</span>&#123;</span><span class="hljs-keyword">int</span> a,t;&#125;f[<span class="hljs-number">100001</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">bool</span> bz[<span class="hljs-number">100001</span>],ls;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><code class="hljs cpp"></span>&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><code class="hljs cpp">	freopen(<span class="hljs-string">"transfer.in"</span>,<span class="hljs-string">"r"</span>,<span class="hljs-built_in">stdin</span>);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><code class="hljs cpp">	freopen(<span class="hljs-string">"transfer.out"</span>,<span class="hljs-string">"w"</span>,<span class="hljs-built_in">stdout</span>);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><code class="hljs cpp">	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n);tou=<span class="hljs-number">0</span>;wei=<span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><code class="hljs cpp">	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><code class="hljs cpp">	&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><code class="hljs cpp">		<span class="hljs-keyword">int</span> s,a,t;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><code class="hljs cpp">		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d%d"</span>,&amp;s,&amp;a,&amp;t);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><code class="hljs cpp">		<span class="hljs-keyword">while</span>(t-f[tou].t&gt;<span class="hljs-number">45</span>&amp;&amp;tou&lt;=wei)tou++;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><code class="hljs cpp">		<span class="hljs-keyword">if</span>(s==<span class="hljs-number">0</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><code class="hljs cpp">		&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><code class="hljs cpp">			ans+=a;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><code class="hljs cpp">			f[++wei].a=a;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><code class="hljs cpp">			f[wei].t=t;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><code class="hljs cpp">		&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><code class="hljs cpp">		<span class="hljs-keyword">else</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><code class="hljs cpp">		&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><code class="hljs cpp">			ls=<span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><code class="hljs cpp">			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=tou;j&lt;=wei;j++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><code class="hljs cpp">			&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><code class="hljs cpp">				<span class="hljs-keyword">if</span>(!bz[j])</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><code class="hljs cpp">				&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><code class="hljs cpp">					<span class="hljs-keyword">if</span>(f[j].a&gt;=a)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><code class="hljs cpp">					&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><code class="hljs cpp">						bz[j]=ls=<span class="hljs-number">1</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><code class="hljs cpp">						<span class="hljs-keyword">break</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><code class="hljs cpp">					&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><code class="hljs cpp">				&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><code class="hljs cpp">			&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><code class="hljs cpp">			<span class="hljs-keyword">if</span>(!ls)ans+=a;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><code class="hljs cpp">		&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><code class="hljs cpp">	&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><code class="hljs cpp">	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%lld"</span>,ans);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><code class="hljs cpp">	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><code class="hljs cpp">&#125;</code></pre></td></tr></table></figure>
+      
+      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+      
     </main>
     <footer class="post-footer">
       
@@ -260,17 +256,8 @@
   </article>
   
   
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-      <a href="/2019/12/01/zhuyi/" rel="next" title="hexo 注意事项"><i class="fas fa-angle-left"></i><span class="nav-title">hexo 注意事项</span></a>
-      
-    </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/12/09/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91bfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【教程】BFS学习笔记"><span class="nav-title">【教程】BFS学习笔记</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
   
   
@@ -303,7 +290,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">10</a></div>
+      <div><a href="/archives/">11</a></div>
     </div>
     
     
@@ -317,17 +304,6 @@
 
 
   <div class="sidebar-sticky">
-    
-    
-    
-    
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Solutions"><span class="toc-text">Solutions</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol></div>
-    </div>
-    
     
     
     <hr>

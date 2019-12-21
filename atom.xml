@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-21T06:25:51.078Z</updated>
+  <updated>2019-12-21T06:51:38.647Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CSP-J T4 加工零件</title>
-    <link href="http://yoursite.com/2019/12/21/csp-j-t4-%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6/"/>
-    <id>http://yoursite.com/2019/12/21/csp-j-t4-%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6/</id>
+    <title>GMOJ P1420 【佳肴】</title>
+    <link href="http://yoursite.com/2019/12/21/gmoj-p1420-%E3%80%90%E4%BD%B3%E8%82%B4%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/21/gmoj-p1420-%E3%80%90%E4%BD%B3%E8%82%B4%E3%80%91/</id>
+    <published>2019-12-21T06:51:28.922Z</published>
+    <updated>2019-12-21T06:51:38.647Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;有两个长度为 $n$ 的数组 $s[]$ 和 $b[]$ 。&lt;/p&gt;
+&lt;p&gt;现在有一个长度为 $n$ 的并且只含有 0 和 1 并且至少有一个 $1$ 的数组 $k[]$ ，使得 $|\prod_{i=1}^{n}s_ik_i-\sum_{i=1}^{n}b_ik_i|$ 的值最小。&lt;/p&gt;
+&lt;p&gt;现在请你求出这个最小值。&lt;/p&gt;
+&lt;p&gt;$1\leq n\leq 10,\prod_{i=1}^{n}s_i,\sum_{i=1}^{n}b_i\leq 10^{9}$ 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2019CSP-J T4 加工零件</title>
+    <link href="http://yoursite.com/2019/12/21/2019csp-j-t4-%E3%80%90%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/21/2019csp-j-t4-%E3%80%90%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6%E3%80%91/</id>
     <published>2019-12-21T06:09:55.307Z</published>
-    <updated>2019-12-21T06:25:51.078Z</updated>
+    <updated>2019-12-21T06:56:16.112Z</updated>
     
     <summary type="html">
     
@@ -38,7 +58,7 @@
     <link href="http://yoursite.com/2019/12/21/gmoj-p3035-%E3%80%90%E9%93%81%E8%BD%A8%E3%80%91/"/>
     <id>http://yoursite.com/2019/12/21/gmoj-p3035-%E3%80%90%E9%93%81%E8%BD%A8%E3%80%91/</id>
     <published>2019-12-21T06:06:50.827Z</published>
-    <updated>2019-12-21T06:07:09.207Z</updated>
+    <updated>2019-12-21T06:51:53.847Z</updated>
     
     <summary type="html">
     
@@ -56,7 +76,7 @@
     <link href="http://yoursite.com/2019/12/14/gmoj-p3403-%E3%80%90%E6%95%B0%E5%88%97%E5%8F%98%E6%8D%A2%E3%80%91/"/>
     <id>http://yoursite.com/2019/12/14/gmoj-p3403-%E3%80%90%E6%95%B0%E5%88%97%E5%8F%98%E6%8D%A2%E3%80%91/</id>
     <published>2019-12-14T06:46:47.072Z</published>
-    <updated>2019-12-21T06:02:53.911Z</updated>
+    <updated>2019-12-21T06:52:45.208Z</updated>
     
     <summary type="html">
     
@@ -75,7 +95,7 @@
     <link href="http://yoursite.com/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/"/>
     <id>http://yoursite.com/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/</id>
     <published>2019-12-14T06:22:56.352Z</published>
-    <updated>2019-12-21T06:03:11.046Z</updated>
+    <updated>2019-12-21T06:53:04.431Z</updated>
     
     <summary type="html">
     
@@ -98,7 +118,7 @@
     <link href="http://yoursite.com/2019/12/14/gmoj-p3504-%E3%80%90%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%91/"/>
     <id>http://yoursite.com/2019/12/14/gmoj-p3504-%E3%80%90%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%91/</id>
     <published>2019-12-14T06:08:36.545Z</published>
-    <updated>2019-12-14T06:17:30.255Z</updated>
+    <updated>2019-12-21T06:52:27.639Z</updated>
     
     <summary type="html">
     
@@ -119,7 +139,7 @@
     <link href="http://yoursite.com/2019/12/14/gmoj-p3517-%E3%80%90%E7%A9%BA%E9%97%B4%E8%88%AA%E8%A1%8C%E3%80%91/"/>
     <id>http://yoursite.com/2019/12/14/gmoj-p3517-%E3%80%90%E7%A9%BA%E9%97%B4%E8%88%AA%E8%A1%8C%E3%80%91/</id>
     <published>2019-12-14T06:04:49.516Z</published>
-    <updated>2019-12-14T06:04:49.517Z</updated>
+    <updated>2019-12-21T06:52:13.624Z</updated>
     
     <summary type="html">
     
@@ -133,15 +153,32 @@
   </entry>
   
   <entry>
-    <title>CSP-J T3 纪念品</title>
-    <link href="http://yoursite.com/2019/12/14/csp-j-t3/"/>
-    <id>http://yoursite.com/2019/12/14/csp-j-t3/</id>
+    <title>2019CSP-J T3 【纪念品】</title>
+    <link href="http://yoursite.com/2019/12/14/2019csp-j-t3-%E3%80%90%E7%BA%AA%E5%BF%B5%E5%93%81%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/14/2019csp-j-t3-%E3%80%90%E7%BA%AA%E5%BF%B5%E5%93%81%E3%80%91/</id>
     <published>2019-12-14T00:59:20.781Z</published>
-    <updated>2019-12-14T06:00:36.521Z</updated>
+    <updated>2019-12-21T06:55:22.568Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/11/30/FoljdQUDLB6WJsh.png&quot; alt=&quot;下载.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2019CSP-J T2 【交通换乘】</title>
+    <link href="http://yoursite.com/2019/12/14/2019csp-j-t2-%E3%80%90%E4%BA%A4%E9%80%9A%E6%8D%A2%E4%B9%98%E3%80%91/"/>
+    <id>http://yoursite.com/2019/12/14/2019csp-j-t2-%E3%80%90%E4%BA%A4%E9%80%9A%E6%8D%A2%E4%B9%98%E3%80%91/</id>
+    <published>2019-12-14T00:59:20.780Z</published>
+    <updated>2019-12-21T06:56:07.432Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/11/27/CFdVnsD8yJ4WGzq.png&quot; alt=&quot;1.png&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -227,23 +264,6 @@
 &lt;td&gt;终点&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CSP-J T2 交通换乘</title>
-    <link href="http://yoursite.com/2019/12/09/csp-j-t2/"/>
-    <id>http://yoursite.com/2019/12/09/csp-j-t2/</id>
-    <published>2019-12-09T11:28:57.851Z</published>
-    <updated>2019-12-09T12:05:45.193Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/11/27/CFdVnsD8yJ4WGzq.png&quot; alt=&quot;1.png&quot;&gt;&lt;/p&gt;
     
     </summary>
     
