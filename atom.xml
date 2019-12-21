@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-14T06:46:47.072Z</updated>
+  <updated>2019-12-21T06:02:53.911Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="http://yoursite.com/2019/12/14/gmoj-p3403-%E3%80%90%E6%95%B0%E5%88%97%E5%8F%98%E6%8D%A2%E3%80%91/"/>
     <id>http://yoursite.com/2019/12/14/gmoj-p3403-%E3%80%90%E6%95%B0%E5%88%97%E5%8F%98%E6%8D%A2%E3%80%91/</id>
     <published>2019-12-14T06:46:47.072Z</published>
-    <updated>2019-12-14T06:46:47.072Z</updated>
+    <updated>2019-12-21T06:02:53.911Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;开始有一初始数列
-        
-      
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;开始有一初始数列 $a=[a_{1},a_{2},a_{3},···,a_{n}]$ ,定义 $f(a,k)=[a_{2},a_{3},···,a_{k},a_{1},a_{k+2},a_{k+3},···,a_{2k},a_{k+1}···]$ ，也就是把 $a$ 分段，每段 $k$ 个，若最后不足 $k$ 个时，将剩下的组成新的一段，每段第一个移成该段最后一个。&lt;/p&gt;
+&lt;p&gt;求 $f(f(f(f(f(1,2,3,···,n),2),3),···),n)$ 的结果。&lt;/p&gt;
+&lt;p&gt;$1\leq n\leq 10^{6}$ 。&lt;/p&gt;
     
     </summary>
     
@@ -44,17 +40,17 @@
     <link href="http://yoursite.com/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/"/>
     <id>http://yoursite.com/2019/12/14/gmoj-p1432%E3%80%90%E8%BE%93%E6%B2%B9%E7%AE%A1%E9%81%93%E3%80%91/</id>
     <published>2019-12-14T06:22:56.352Z</published>
-    <updated>2019-12-14T06:22:56.352Z</updated>
+    <updated>2019-12-21T06:03:11.046Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;在一个 &lt;code&gt;n \times m&lt;/code&gt;
-        
-      
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;在一个 &lt;code&gt;n \times m&lt;/code&gt; 的图上，有一条从M到Z的管道，管道分类如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/08/07/m23vY5fLZtUWehb.jpg&quot; alt=&quot;管道图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;‘+’型管道比较特殊，可以垂直和水平传输。如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/12/14/pKR9M3jotNysvZD.jpg&quot; alt=&quot;管道图2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;现在这段管道有一个单元格的管道失踪了，请找出缺失管道的位置和它的类型。&lt;/p&gt;
+&lt;p&gt;题目保证只有一条管道与M和Z相连，图上的所有管道都会被用上，保证答案唯一。&lt;/p&gt;
+&lt;p&gt;$$1\leq n,m\leq 25$$ 。&lt;/p&gt;
     
     </summary>
     

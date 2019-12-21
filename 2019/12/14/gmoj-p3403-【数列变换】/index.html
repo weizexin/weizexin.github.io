@@ -246,6 +246,8 @@
       <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>开始有一初始数列 $a=[a_{1},a_{2},a_{3},···,a_{n}]$ ,定义 $f(a,k)=[a_{2},a_{3},···,a_{k},a_{1},a_{k+2},a_{k+3},···,a_{2k},a_{k+1}···]$ ，也就是把 $a$ 分段，每段 $k$ 个，若最后不足 $k$ 个时，将剩下的组成新的一段，每段第一个移成该段最后一个。</p>
 <p>求 $f(f(f(f(f(1,2,3,···,n),2),3),···),n)$ 的结果。</p>
 <p>$1\leq n\leq 10^{6}$ 。</p>
+<a id="more"></a>
+
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑使用 <strong>模拟</strong> 和 <strong>找规律</strong> 来解题。</p>
 <p>操作中是将数列按每 $k$ 个为一段，将第一个移到最后一个的位置，其他然后往前补一格。</p>
 <p>但我们很快可以发现，有一种等价的做法是：将第 $1$ 个移到 $k+1$ 个的位置，第 $k+1$ 个移到第 $2k+1$ 的位置，一直到第 $xk+1$ 个移到 $n+1$ 的位置，第 $2$ 个到第 $n+1$ 个组成的序列和之前的做法组成的序列是一样的。</p>
