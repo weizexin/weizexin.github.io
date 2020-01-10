@@ -35,7 +35,7 @@
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     
     
-    <link rel="alternate" href="/atom.xml" title="A Blog" type="application/atom+xml" />
+    <link rel="alternate" href="/atom.xml" title="Weizexin" type="application/atom+xml" />
     
     
     <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
@@ -180,7 +180,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>GMOJ P1420 【佳肴】 | A Blog</title>
+    <title>GMOJ P3504 【运算符】 | Weizexin</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -188,7 +188,7 @@
   <div class="container">
     <div class="header-container">
       <div class="header-title">
-        <h1 class="title"><a href="/">A Blog</a></h1>
+        <h1 class="title"><a href="/">Weizexin</a></h1>
         <h2 class="subtitle"></h2>
       </div>
       
@@ -220,40 +220,55 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/gmoj-p1420-%E3%80%90%E4%BD%B3%E8%82%B4%E3%80%91/">
+      <link itemprop="mainEntityOfPage" href="http://weizexin.github.io/2019/12/28/gmoj-p3504-%E3%80%90%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%91/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="Weizexin">
+       <meta itemprop="name" content="一个初中Oier">
        <meta itemprop="description" content="">
        <meta itemprop="image" content="/images/m.png">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="A Blog">
+       <meta itemprop="name" content="Weizexin">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">GMOJ P1420 【佳肴】</h1>
+      <h1 class="post-title" itemprop="name headline">GMOJ P3504 【运算符】</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-21T14:51:28+08:00">2019-12-21 14:51:28</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-28T10:44:30+08:00">2019-12-28 10:44:30</time></span>
         </span>
         
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2019/12/28/gmoj-p3504-%E3%80%90%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%91/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2019/12/28/gmoj-p3504-【运算符】/" itemprop="commentCount"></span></a></span>
+        </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有两个长度为 $n$ 的数组 $s[]$ 和 $b[]$ 。</p>
-<p>现在有一个长度为 $n$ 的并且只含有 0 和 1 并且至少有一个 $1$ 的数组 $k[]$ ，使得 $|\prod_{i=1}^{n}s_ik_i-\sum_{i=1}^{n}b_ik_i|$ 的值最小。</p>
-<p>现在请你求出这个最小值。</p>
-<p>$1\leq n\leq 10,\prod_{i=1}^{n}s_i,\sum_{i=1}^{n}b_i\leq 10^{9}$ 。</p>
+      <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>定义新运算 “$!$” ，运算规则如下：</p>
+<p>$a!b = a!(b-1) \times (a-1)!b ( a &gt; 0,b &gt; 0 )$<br>$a!b = 1 ( a = 0 )$<br>$a!b = a ( b = 0 )$</p>
+<p>。</p>
+<p>给你两个正整数 $n$ 和 $k$ ，现在请你求出 $n!k$ 的因子个数 $\mod (10^9+9)$ 。</p>
+<p>$1\leq n\leq 1000,1 \leq k \leq 100$ 。</p>
 <a id="more"></a>
 
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑使用 <strong>DFS</strong> 来解题。</p>
-<p>由于 $1 \leq n \leq 10$ ，直接 <strong>DFS</strong> 选择即可。</p>
-<p>时间复杂度 $O(2^{n})$ ，具体细节见 <strong>代码</strong> 部分。</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑使用 <strong>递推</strong> 来解题。</p>
+<p>设 $f[i][j][k]$ 表示 $i ! j$ 分解质因数后的第 $k$ 个 <strong>质数</strong> 的指数的值，那显然有：</p>
+<p>$f[i][j][k]=(f[i-1][j][k]+f[i][j-1][k])\mod(10^9+9)$</p>
+<p>。</p>
+<p>若一个数 $n=p_1^{k_1} \times p_2^{k_2} \times … \times p_m^{k_m}$ ，其中 $p_1$ ~ $p_m$ 均为质数，那么 $n$ 的因子个数为 $\prod_{i=1}^m (k_i+1)$ 。</p>
+<p>所以我们可以得出答案等于 $(\prod_{i=1}^{n}(f[n][k][i]+1)) \mod;(10^9+9)$ 。</p>
+<p>记得要中途取模！</p>
+<p>时间复杂度 $O(nk)$，具体细节详见 <strong>代码</strong> 部分。</p>
 <p>然后这道题目就做完了。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstring&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> n,a[<span class="hljs-number">11</span>],b[<span class="hljs-number">11</span>],ans=<span class="hljs-number">2147483647</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> nx,<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> an,<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> bn)</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><code class="hljs cpp"></span>&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">if</span>(nx==n)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><code class="hljs cpp">        ans=min(ans,<span class="hljs-built_in">abs</span>(an-bn));</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-keyword">return</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><code class="hljs cpp">    dfs(nx+<span class="hljs-number">1</span>,an,bn);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><code class="hljs cpp">    dfs(nx+<span class="hljs-number">1</span>,an*a[nx+<span class="hljs-number">1</span>],bn+b[nx+<span class="hljs-number">1</span>]);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><code class="hljs cpp">&#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><code class="hljs cpp"></span>&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%lld"</span>,&amp;n);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%lld%lld"</span>,&amp;a[i],&amp;b[i]);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><code class="hljs cpp">        dfs(i,a[i],b[i]);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%lld"</span>,ans);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><code class="hljs cpp">&#125;</code></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N=<span class="hljs-number">1e9</span>+<span class="hljs-number">9</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> n,m,a[<span class="hljs-number">169</span>],len;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> f[<span class="hljs-number">1001</span>][<span class="hljs-number">101</span>][<span class="hljs-number">169</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> ans=<span class="hljs-number">1</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">bool</span> bz[<span class="hljs-number">1001</span>];</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></code></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><code class="hljs cpp"></span>&#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;n,&amp;m);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><code class="hljs cpp">    a[++len]=<span class="hljs-number">2</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">3</span>;i&lt;=n;i+=<span class="hljs-number">2</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-keyword">if</span>(bz[i]==<span class="hljs-literal">false</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><code class="hljs cpp">            a[++len]=i;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><code class="hljs cpp">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">3</span>;j&lt;=n/i;j+=<span class="hljs-number">2</span>)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><code class="hljs cpp">            &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><code class="hljs cpp">                bz[i*j]=<span class="hljs-literal">true</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><code class="hljs cpp">            &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-keyword">int</span> x=i;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=len&amp;&amp;a[j]&lt;=i;j++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><code class="hljs cpp">            <span class="hljs-keyword">while</span>(x%a[j]==<span class="hljs-number">0</span>)x/=a[j],f[i][<span class="hljs-number">0</span>][j]++;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><code class="hljs cpp">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=m;j++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><code class="hljs cpp">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=<span class="hljs-number">1</span>;k&lt;=len;k++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><code class="hljs cpp">            &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><code class="hljs cpp">                f[i][j][k]=(f[i<span class="hljs-number">-1</span>][j][k]+f[i][j<span class="hljs-number">-1</span>][k])%N;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><code class="hljs cpp">            &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><code class="hljs cpp">        &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=len;i++)</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#123;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><code class="hljs cpp">        ans=(ans*(f[n][m][i]+<span class="hljs-number">1</span>))%N;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><code class="hljs cpp">    &#125;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>,ans);</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><code class="hljs cpp">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</code></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><code class="hljs cpp">&#125;</code></pre></td></tr></table></figure>
     </main>
     <footer class="post-footer">
       
@@ -264,16 +279,42 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2019/12/21/2019csp-j-t4-%E3%80%90%E5%8A%A0%E5%B7%A5%E9%9B%B6%E4%BB%B6%E3%80%91/" rel="next" title="2019CSP-J T4 加工零件"><i class="fas fa-angle-left"></i><span class="nav-title">2019CSP-J T4 加工零件</span></a>
+      <a href="/2019/12/28/gmoj-p3403-%E3%80%90%E6%95%B0%E5%88%97%E5%8F%98%E6%8D%A2%E3%80%91/" rel="next" title="GMOJ P3403 【数列变换】"><i class="fas fa-angle-left"></i><span class="nav-title">GMOJ P3403 【数列变换】</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/2019/12/21/gmoj-p2642-%E3%80%90%E6%B8%B8%E6%88%8F%E3%80%91/" rel="prev" title="GMOJ P2642 【游戏】"><span class="nav-title">GMOJ P2642 【游戏】</span><i class="fas fa-angle-right"></i></a>
+      <a href="/2019/12/28/gmoj-p3517-%E3%80%90%E7%A9%BA%E9%97%B4%E8%88%AA%E8%A1%8C%E3%80%91/" rel="prev" title="GMOJ P3517 【空间航行】"><span class="nav-title">GMOJ P3517 【空间航行】</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
   
+  
+  
+
+<div class="comments" id="comments">
+  
+  <script defer id="dsq-count-scr" src="//wzx-1.disqus.com/count.js"></script>
+  
+  <div id="disqus_thread" class="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "http://weizexin.github.io/2019/12/28/gmoj-p3504-%E3%80%90%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%91/";
+    this.page.identifier = "2019/12/28/gmoj-p3504-【运算符】/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://wzx-1.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  
+  
+</div>
+
+
+
   
 </div>
 
@@ -293,9 +334,9 @@
   
 <div class="info sidebar-item" id="info">
   
-  <img class="author-avatar" src="/images/m.png" alt="Weizexin">
+  <img class="author-avatar" src="/images/m.png" alt="一个初中Oier">
   
-  <h1 class="author-name">Weizexin</h1>
+  <h1 class="author-name">一个初中Oier</h1>
   <h2 class="author-description"></h2>
   <div class="site-count">
     
@@ -342,8 +383,6 @@
         
         <li><a href="https://blog.csdn.net/qq_40167327" target="_blank">CSDN</a></li>
         
-        <li><a href="http://129.204.88.66/" target="_blank">A Blog Main Station</a></li>
-        
       </ul>
     </div>
     
@@ -385,7 +424,7 @@
     <div class="footer-container">
       <div class="footer-left">
         <div class="copyright">
-          <span class="author">Weizexin</span><span class="year"><i class="far fa-copyright"></i>Sun Jul 07 2019 08:00:00 GMT+0800 (中国标准时间) - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">BY-SA 4.0</a></span>
+          <span class="author">一个初中Oier</span><span class="year"><i class="far fa-copyright"></i>Sun Jul 07 2019 08:00:00 GMT+0800 (中国标准时间) - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">BY-SA 4.0</a></span>
         </div>
         
         <div class="busuanzi">
